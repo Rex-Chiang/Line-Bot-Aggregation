@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ow_6y5+&)ghl+_i%4^)f0vj%j@ddnor3sjk^@rx*$@oe5!dsu_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = 'account.Account'
 
@@ -128,3 +128,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOG_VERSION = os.environ.get("LOG_VERSION")
+LINE_CHANNEL_SECRET = os.environ.get("LINE_CHANNEL_SECRET")
+LINE_CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
