@@ -35,7 +35,7 @@ def handleFollow(event):
             account.user_name = user_profile.display_name
             account.user_profile_pic = user_profile.picture_url
             account.user_language = user_profile.language
-            
+
         account.is_active = True
         account.save()
 
