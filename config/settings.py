@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ow_6y5+&)ghl+_i%4^)f0vj%j@ddnor3sjk^@rx*$@oe5!dsu_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "line-bot-aggregation.fly.dev"]
 
 AUTH_USER_MODEL = 'account.Account'
 
