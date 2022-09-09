@@ -13,7 +13,7 @@ app.config_from_object("django.conf:settings", namespace="CELERY")
 app.conf.beat_schedule ={
         'send_vocabulary':{
             'task':'mainbot.tasks.send_vocabulary',
-            'schedule':crontab(minute=0, hour="*/5"),
+            'schedule':crontab(minute=0, hour="*/8"),
         },
 }
 
