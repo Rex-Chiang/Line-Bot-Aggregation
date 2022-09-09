@@ -1,0 +1,23 @@
+app = "redis-server"
+
+[mounts]
+source      = "redis_server"
+destination = "/data"
+
+[metrics]
+  port = 9091
+  path = "/metrics"
+
+[build]
+  image = "flyio/redis:6.2.6"
+
+[[services]]
+  internal_port = 6379
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = "10000"
+
+  [[services.tcp_checks]]
+    interval = "10s"
+    timeout = "2s"
