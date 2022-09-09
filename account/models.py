@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 class Account(AbstractUser):
     id = models.AutoField(primary_key=True)
     user_id = models.CharField(max_length=64, unique=True)
-    user_name = models.CharField(max_length=32, null=True)
+    username = models.CharField(max_length=32, unique=True)
     user_profile_pic = models.CharField(max_length=256, null=True, db_column="profile_pic")
     user_language = models.CharField(max_length=10, null=True, default=None)
     is_active = models.BooleanField(default=False)
