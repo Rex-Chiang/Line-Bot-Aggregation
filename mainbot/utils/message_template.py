@@ -31,6 +31,7 @@ def vocabulary_card(english_word, chinese_word, example):
                         {
                             "type": "text",
                             "text": english_word,
+                            "wrap": True,
                             "color": "#666666",
                             "size": "lg",
                             "flex": 6
@@ -52,6 +53,7 @@ def vocabulary_card(english_word, chinese_word, example):
                         {
                             "type": "text",
                             "text": chinese_word,
+                            "wrap": True,
                             "color": "#666666",
                             "size": "lg",
                             "flex": 6
