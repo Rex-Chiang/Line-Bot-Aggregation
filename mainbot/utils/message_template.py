@@ -1,9 +1,6 @@
 from django.conf import settings
 
-def vocabulary_card(english_word, chinese_word, example):
-    if len(example) == 0:
-        example = "No Example"
-
+def vocabulary_card(vocabulary_list):
     return {
         "type": "bubble",
         "hero": {
@@ -23,14 +20,14 @@ def vocabulary_card(english_word, chinese_word, example):
                     "contents": [
                         {
                             "type": "text",
-                            "text": "English : ",
+                            "text": "Vocabulary 1 : ",
                             "color": "#aaaaaa",
                             "size": "lg",
                             "flex": 6
                         },
                         {
                             "type": "text",
-                            "text": english_word,
+                            "text": vocabulary_list[0][0],
                             "wrap": True,
                             "color": "#666666",
                             "size": "lg",
@@ -52,7 +49,7 @@ def vocabulary_card(english_word, chinese_word, example):
                         },
                         {
                             "type": "text",
-                            "text": chinese_word,
+                            "text": vocabulary_list[0][1],
                             "wrap": True,
                             "color": "#666666",
                             "size": "lg",
@@ -67,25 +64,87 @@ def vocabulary_card(english_word, chinese_word, example):
                     "contents": [
                         {
                             "type": "text",
-                            "text": "Example : ",
+                            "text": "Vocabulary 2 : ",
                             "color": "#aaaaaa",
                             "size": "lg",
+                            "flex": 6
+                        },
+                        {
+                            "type": "text",
+                            "text": vocabulary_list[1][0],
+                            "wrap": True,
+                            "color": "#666666",
+                            "size": "lg",
+                            "flex": 6
                         }
                     ],
                     "margin": "md"
-                }
-            ]
-        },
-        "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
+                },
                 {
-                    "type": "text",
-                    "text": example,
-                    "size": "sm",
-                    "align": "center",
-                    "color": "#666666",
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "Chinese : ",
+                            "color": "#aaaaaa",
+                            "size": "lg",
+                            "flex": 6
+                        },
+                        {
+                            "type": "text",
+                            "text": vocabulary_list[1][1],
+                            "wrap": True,
+                            "color": "#666666",
+                            "size": "lg",
+                            "flex": 6
+                        }
+                    ],
+                    "margin": "md"
+                },
+                {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "Vocabulary 3 : ",
+                            "color": "#aaaaaa",
+                            "size": "lg",
+                            "flex": 6
+                        },
+                        {
+                            "type": "text",
+                            "text": vocabulary_list[2][0],
+                            "wrap": True,
+                            "color": "#666666",
+                            "size": "lg",
+                            "flex": 6
+                        }
+                    ],
+                    "margin": "md"
+                },
+                {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "Chinese : ",
+                            "color": "#aaaaaa",
+                            "size": "lg",
+                            "flex": 6
+                        },
+                        {
+                            "type": "text",
+                            "text": vocabulary_list[2][1],
+                            "wrap": True,
+                            "color": "#666666",
+                            "size": "lg",
+                            "flex": 6
+                        }
+                    ],
+                    "margin": "md"
                 }
             ]
         }
