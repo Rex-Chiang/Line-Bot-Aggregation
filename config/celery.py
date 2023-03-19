@@ -11,9 +11,9 @@ app = Celery("config")
 app.config_from_object("django.conf:settings", namespace="CELERY")
 
 app.conf.beat_schedule ={
-        'send_vocabulary':{
-            'task':'mainbot.tasks.send_vocabulary',
-            'schedule':crontab(minute=0, hour="9,15,22"),
+        "send_vocabulary":{
+            "task": "mainbot.tasks.send_vocabulary",
+            "schedule": crontab(minute=0, hour="9,15,22"),
         },
 }
 

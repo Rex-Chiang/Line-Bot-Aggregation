@@ -31,6 +31,7 @@ def handleFollow(event):
     try:
         user_profile = line_bot_api.get_profile(event.source.user_id)
         account, created = Account.objects.get_or_create(user_id=event.source.user_id)
+
         if created:
             account.username = user_profile.display_name
             account.user_profile_pic = user_profile.picture_url
