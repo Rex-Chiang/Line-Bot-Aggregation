@@ -131,6 +131,13 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
 
+CELERY_BROKER_TRANSPORT_OPTIONS = {
+    "max_retries": 5,
+    "interval_start": 0,
+    "interval_step": 1,
+    "interval_max": 10
+}
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOG_VERSION = os.environ.get("LOG_VERSION")
