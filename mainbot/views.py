@@ -56,7 +56,10 @@ def handleUnFollow(event):
 @handler.add(MessageEvent)
 def handleMessage(event):
     try:
-        line_bot_api.reply_message(event.reply_token, TextMessage(text="Shut Up !"))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextMessage(text="NOT ALLOW")
+        )
 
     except Exception as exception_message:
         logger.exception(exception_message)
