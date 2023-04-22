@@ -1,8 +1,9 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class Account(AbstractUser):
-    id = models.AutoField(primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user_id = models.CharField(max_length=64, unique=True)
     username = models.CharField(max_length=32, unique=True)
     user_profile_pic = models.CharField(max_length=256, null=True, db_column="profile_pic")
