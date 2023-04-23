@@ -1,7 +1,8 @@
 # Line-Bot-Aggregation
 
 ## Overview
-Users can receive messages with english vocabulary and example through LINE (Communication App) to help users expand their vocabulary and improve their english skills.\
+Users can receive messages with english vocabulary and example through LINE (Communication App) to help users expand their vocabulary and improve their english skills.
+
 This project was deployed on **Fly.io (https://fly.io)**
 
 ## Developing
