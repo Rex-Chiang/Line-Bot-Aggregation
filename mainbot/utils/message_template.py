@@ -1,6 +1,6 @@
 from django.conf import settings
 
-def vocabulary_card(vocabulary_list):
+def vocabulary_card(vocabulary_list, example, translation):
     return {
         "type": "bubble",
         "hero": {
@@ -145,6 +145,34 @@ def vocabulary_card(vocabulary_list):
                         }
                     ],
                     "margin": "md"
+                }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "md",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": "Example",
+                    "color": "#aaaaaa",
+                    "size": "lg",
+                    "align": "center"
+                },
+                {
+                    "type": "text",
+                    "text": example,
+                    "wrap": True,
+                    "color": "#666666",
+                    "size": "md"
+                },
+                {
+                    "type": "text",
+                    "text": translation,
+                    "wrap": True,
+                    "color": "#aaaaaa",
+                    "size": "md"
                 }
             ]
         }
