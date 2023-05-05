@@ -47,8 +47,10 @@ def handleFollow(event):
 def handleUnFollow(event):
     try:
         account = Account.objects.filter(user_id=event.source.user_id).first()
-        account.is_active = False
-        account.save()
+
+        if account:
+            account.is_active = False
+            account.save()
 
     except Exception as exception_message:
         logger.exception(exception_message)
