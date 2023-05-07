@@ -43,20 +43,24 @@ async def get_vocabularies():
 
 @shared_task
 def send_vocabulary():
-    line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
+    try:
+        line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
-    vocabulary_list, en_words = asyncio.run(get_vocabularies())
+        vocabulary_list, en_words = asyncio.run(get_vocabularies())
 
-    example = generate_response(f"{settings.CHATGPT_PROMPT_EXAMPLE} : {en_words}")
-    translation = generate_response(f"{settings.CHATGPT_PROMPT_TRANSLATION} : {example}")
+        example = generate_response(f"{settings.CHATGPT_PROMPT_EXAMPLE} : {en_words}")
+        translation = generate_response(f"{settings.CHATGPT_PROMPT_TRANSLATION} : {example}")
 
-    message_card = FlexSendMessage(
-        alt_text="New Vocabulary",
-        contents=vocabulary_card(vocabulary_list, example, translation)
-    )
+        message_card = FlexSendMessage(
+            alt_text="New Vocabulary",
+            contents=vocabulary_card(vocabulary_list, example, translation)
+        )
 
-    users_id = Account.objects.all().values_list("user_id", flat=True)
+        users_id = Account.objects.all().values_list("user_id", flat=True)
 
-    for user_id in users_id:
-        logger.debug(f"USER ID : {user_id}")
-        line_bot_api.push_message(user_id, message_card)
+        for user_id in users_id:
+            logger.debug(f"USER ID : {user_id}")
+            line_bot_api.push_message(user_id, message_card)
+
+    except Exception as exception_message:
+        logger.exception(exception_message)
