@@ -1,4 +1,5 @@
 import openai
+from django.conf import settings
 
 def generate_response(prompt):
     messages = [
@@ -9,7 +10,7 @@ def generate_response(prompt):
     ]
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model=settings.CHATGPT_MODEL,
         messages=messages,
         max_tokens=200
     )
